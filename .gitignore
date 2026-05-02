@@ -1,0 +1,21 @@
+# Credenciales — NUNCA subir
+.env
+config/gcp-credentials.json
+
+# Datos temporales locales (en cualquier subcarpeta)
+**/data_temp/
+
+# PyCharm
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# DBT
+target/
+dbt_packages/
+logs/

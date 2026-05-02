@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: weather_daily_summary
+    description: >
+      Resumen diario agregado por ciudad, listo para consumir en Looker Studio.
+      Contiene medias, mínimos y máximos diarios de las principales métricas meteorológicas.
+      Cada fila representa un día y una ciudad.
+
+    columns:
+      - name: city
+        description: "Nombre de la ciudad"
+        tests:
+          - not_null
+
+      - name: country
+        description: "Código ISO del país"
+        tests:
+          - not_null
+
+      - name: date
+        description: "Fecha del resumen diario"
+        tests:
+          - not_null
+
+      - name: avg_temperature_c
+        description: "Temperatura media del día en Celsius"
+        tests:
+          - not_null
+
+      - name: min_temperature_c
+        description: "Temperatura mínima registrada en el día"
+
+      - name: max_temperature_c
+        description: "Temperatura máxima registrada en el día"
+
+      - name: avg_humidity_pct
+        description: "Humedad media del día en porcentaje"
+
+      - name: avg_wind_speed_ms
+        description: "Velocidad media del viento en metros por segundo"
+
+      - name: avg_cloudiness_pct
+        description: "Nubosidad media del día en porcentaje"
+
+      - name: total_readings
+        description: "Número total de lecturas de la API en ese día"
+        tests:
+          - not_null

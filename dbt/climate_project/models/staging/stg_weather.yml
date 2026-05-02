@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: stg_weather
+    description: >
+      Capa de staging que limpia y tipifica los datos crudos de la API de OpenWeather.
+      Castea todos los tipos correctamente y renombra columnas para mayor claridad.
+      Se actualiza cada vez que se ejecuta el pipeline de extracción.
+
+    columns:
+      - name: city
+        description: "Nombre de la ciudad consultada en la API"
+        tests:
+          - not_null
+
+      - name: country
+        description: "Código ISO del país (ej: ES, US, FR)"
+        tests:
+          - not_null
+
+      - name: temperature_c
+        description: "Temperatura actual en grados Celsius"
+        tests:
+          - not_null
+
+      - name: feels_like_c
+        description: "Sensación térmica en grados Celsius"
+
+      - name: temp_min_c
+        description: "Temperatura mínima registrada en el momento de la extracción"
+
+      - name: temp_max_c
+        description: "Temperatura máxima registrada en el momento de la extracción"
+
+      - name: humidity_pct
+        description: "Humedad relativa en porcentaje (0-100)"
+        tests:
+          - not_null
+
+      - name: pressure_hpa
+        description: "Presión atmosférica en hectopascales"
+
+      - name: wind_speed_ms
+        description: "Velocidad del viento en metros por segundo"
+
+      - name: wind_direction_deg
+        description: "Dirección del viento en grados (0-360)"
+
+      - name: weather_main
+        description: "Categoría principal del tiempo (Clear, Clouds, Rain, etc.)"
+
+      - name: weather_desc
+        description: "Descripción detallada del tiempo en español"
+
+      - name: cloudiness_pct
+        description: "Porcentaje de nubosidad (0-100)"
+
+      - name: visibility_m
+        description: "Visibilidad en metros"
+
+      - name: extracted_at
+        description: "Timestamp UTC de cuando se llamó a la API"
+        tests:
+          - not_null
+
+      - name: loaded_at
+        description: "Timestamp UTC de cuando se insertó el dato en BigQuery"

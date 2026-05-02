@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: climate_data_raw
+    database: climate-data-analytics-494218
+    schema: climate_data_raw
+    tables:
+      - name: weather_raw
+        description: "Datos crudos del tiempo extraídos de OpenWeather API"
